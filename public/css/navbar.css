@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'MinecraftSevenV2';
+  src: url('../fonts/minecraft-seven-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+nav{
+    font-family: 'MinecraftSevenV2', sans-serif;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+}
+.navbar{
+    backdrop-filter: blur(5px);
+    background-color: #0f0f0fc7;
+    border-bottom: #1f1f1f;
+    border-style: solid;
+    padding: 30px 20px;
+}
+.navbar-contents{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    background-color: transparent;
+    width: auto;
+    height: auto;
+}
+.logo img{
+    width: 150px;
+}
+.navbar-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+.navbar-item{
+    margin: 0px ;
+    height: 100%;
+}
+.ml-7px{
+    margin-left: 20px ;
+}
+.navbar-item a{
+    font-size: 15px;
+    font-weight: 900;
+    text-decoration: none;
+}
+.login-button{
+    width: 100px;
+    height: 100%;
+    padding: 10px 10px;
+    background-color: #00be00;
+    color: white;
+    cursor: pointer;
+    font-weight: 900;
+}

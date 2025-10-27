@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'MinecraftSevenV2';
+  src: url('../fonts/minecraft-seven-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Minecrafter';
+  src: url('../fonts/Minecrafter.Reg.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+.MinecraftSevenV2{
+    font-family: 'MinecraftSevenV2', sans-serif;
+}
+.Minecrafter{
+    font-family: 'Minecrafter', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: rgb(15, 15, 15);
+}
