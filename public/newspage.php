@@ -40,7 +40,7 @@
                 <div class="pt-36 mb-52">
                     <h2 class="text-white Minecrafter text-4xl text-center mb-10">NEWS</h2>
                     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 place-items-center box-border">
-                        <?php foreach($news as $n): ?>
+                        <?php foreach($news as $n): ?>~
                         <div class="news-item w-full h-auto bg-[#131313] p-5 overflow-hidden">
                             <img src="<?= PUBLIC_URL ?>/images/uploads/<?= $n['gambar_news'] ?>" class="object-cover w-full h-[150px] mb-5" alt="">
                             <h2 class="title text-white Minecrafter"><?= $n['judul_news'] ?></h2>
