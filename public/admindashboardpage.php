@@ -70,7 +70,7 @@
                                 <td class="text-white px-2 py-2"><?= $n['judul_news'] ?></td>
                                 <td class="text-white px-2 py-2 truncate"><?= $n['text_news'] ?></td>
                                 <td class="text-[#2fff2f] px-2 py-2 text-center"><a href="">Edit</a></td>
-                                <td class="text-red-500 px-2 py-2 text-center"><a href="">Delete</a></td>
+                                <td class="text-red-500 px-2 py-2 text-center"><a href="../app/admindeletenewspage_process.php?id_news=<?= $n['id_news']; ?>">Delete</a></td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

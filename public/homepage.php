@@ -1,5 +1,13 @@
 <?php
+    require_once __DIR__ . '/../config/config.php';
     require_once __DIR__ . '/../app/auth.php';
+
+    $sql = "SELECT id_news, judul_news, slug_news, gambar_news, text_news, tanggal_news FROM news ORDER BY tanggal_news DESC LIMIT 3";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_execute($stmt); 
+    $result = mysqli_stmt_get_result($stmt);
+    $news = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    mysqli_stmt_close($stmt);
 ?>
 
 <!DOCTYPE html>
@@ -60,32 +68,18 @@
                         <a href="../public/newspage.php" class="bg-transparent border-2 border-[#2fff2f] text-[#2fff2f] h-12 cursor-pointer MinecraftSevenV2 text-sm px-6 flex items-center">VIEW MORE</a>
                     </div>
                     
-                    <div class="news w-full box-border flex justify-between items-center">
+                    <div class="news w-full box-border flex justify-start gap-5 items-center">
+                        <?php foreach($news as $n): ?>
                         <div class="news-item w-[300px] h-auto bg-[#131313] p-5 overflow-hidden">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/MCV_ChaseTheSkies_Mesa01_VV_.net_1170x500.jpg" class="object-cover w-full h-[150px] mb-5" alt="">
-                            <h2 class="title text-white Minecrafter">The road to Vibrant Visuals on Java</h2>
+                            <img src="<?= PUBLIC_URL ?>/images/uploads/<?= $n['gambar_news'] ?>" class="object-cover w-full h-[150px] mb-5" alt="">
+                            <h2 class="title text-white Minecrafter truncate"><?= $n['judul_news'] ?></h2>
                             <p></p>
                             <div class="w-full h-[100px] overflow-hidden">
-                                <p class="multiline-ellipsis text-white text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur esse, ad sequi doloribus impedit totam saepe beatae ipsum, unde, dolores voluptates ab fuga voluptate iste cum omnis eaque dolorem! Culpa.</p>
+                                <p class="multiline-ellipsis text-white text-justify"><?= $n['text_news'] ?></p>
                             </div>
                             <button class="bg-[#00be00] border-4 border-[#2fff2f] text-[#ffffff] h-12 cursor-pointer MinecraftSevenV2 text-sm px-6">READ MORE</button>
                         </div>
-                        <div class="news-item w-[300px] h-auto bg-[#131313] p-5 overflow-hidden">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/MCV_ChaseTheSkies_Mesa01_VV_.net_1170x500.jpg" class="object-cover w-full h-[150px] mb-5" alt="">
-                            <h2 class="title text-white Minecrafter">The road to Vibrant Visuals on Java</h2>
-                            <div class="w-full h-[100px] overflow-hidden">
-                                <p class="multiline-ellipsis text-white text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur esse, ad sequi doloribus impedit totam saepe beatae ipsum, unde, dolores voluptates ab fuga voluptate iste cum omnis eaque dolorem! Culpa.</p>
-                            </div>
-                            <button class="bg-[#00be00] border-4 border-[#2fff2f] text-[#ffffff] h-12 cursor-pointer MinecraftSevenV2 text-sm px-6">READ MORE</button>
-                        </div>
-                        <div class="news-item w-[300px] h-auto bg-[#131313] p-5 overflow-hidden">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/MCV_ChaseTheSkies_Mesa01_VV_.net_1170x500.jpg" class="object-cover w-full h-[150px] mb-5" alt="">
-                            <h2 class="title text-white Minecrafter">The road to Vibrant Visuals on Java</h2>
-                            <div class="w-full h-[100px] overflow-hidden">
-                                <p class="multiline-ellipsis text-white text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur esse, ad sequi doloribus impedit totam saepe beatae ipsum, unde, dolores voluptates ab fuga voluptate iste cum omnis eaque dolorem! Culpa.</p>
-                            </div>
-                            <button class="bg-[#00be00] border-4 border-[#2fff2f] text-[#ffffff] h-12 cursor-pointer MinecraftSevenV2 text-sm px-6">READ MORE</button>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </section">

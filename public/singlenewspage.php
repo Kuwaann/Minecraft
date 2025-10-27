@@ -1,3 +1,19 @@
+<?php
+    require_once __DIR__ . '/../config/config.php';
+    require_once __DIR__ . '/../app/functions.php';
+    require_once __DIR__ . '/../app/auth.php';
+
+        $id_news = $_GET['id_news'];
+        $stmt = mysqli_prepare($conn,"SELECT * FROM news WHERE id_news = ? LIMIT 1");
+        mysqli_stmt_bind_param($stmt,'s',$id_news);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $news = mysqli_fetch_assoc($result);
+        mysqli_stmt_close($stmt);
+
+    
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,45 +39,13 @@
         ?>
         <main>
             <section class="flex flex-col justify-center items-center h-auto px-48">
-                <div class="pt-36 mb-52">
-                    <h2 class="text-white Minecrafter text-4xl text-center mb-10">NEWS</h2>
-                    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 place-items-center box-border">
-                        <div class="news-item w-full h-auto bg-[#131313] p-5 overflow-hidden">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/MCV_ChaseTheSkies_Mesa01_VV_.net_1170x500.jpg" class="object-cover w-full h-[150px] mb-5" alt="">
-                            <h2 class="title text-white Minecrafter">The road to Vibrant Visuals on Java</h2>
-                            <p></p>
-                            <div class="w-full h-[100px] overflow-hidden">
-                                <p class="multiline-ellipsis text-white text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur esse, ad sequi doloribus impedit totam saepe beatae ipsum, unde, dolores voluptates ab fuga voluptate iste cum omnis eaque dolorem! Culpa.</p>
-                            </div>
-                            <button class="bg-[#00be00] border-4 border-[#2fff2f] text-[#ffffff] h-12 cursor-pointer MinecraftSevenV2 text-sm px-6">READ MORE</button>
-                        </div>
-                        <div class="news-item w-full h-auto bg-[#131313] p-5 overflow-hidden">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/MCV_ChaseTheSkies_Mesa01_VV_.net_1170x500.jpg" class="object-cover w-full h-[150px] mb-5" alt="">
-                            <h2 class="title text-white Minecrafter">The road to Vibrant Visuals on Java</h2>
-                            <div class="w-full h-[100px] overflow-hidden">
-                                <p class="multiline-ellipsis text-white text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur esse, ad sequi doloribus impedit totam saepe beatae ipsum, unde, dolores voluptates ab fuga voluptate iste cum omnis eaque dolorem! Culpa.</p>
-                            </div>
-                            <button class="bg-[#00be00] border-4 border-[#2fff2f] text-[#ffffff] h-12 cursor-pointer MinecraftSevenV2 text-sm px-6">READ MORE</button>
-                        </div>
-                        <div class="news-item w-full h-auto bg-[#131313] p-5 overflow-hidden">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/MCV_ChaseTheSkies_Mesa01_VV_.net_1170x500.jpg" class="object-cover w-full h-[150px] mb-5" alt="">
-                            <h2 class="title text-white Minecrafter">The road to Vibrant Visuals on Java</h2>
-                            <div class="w-full h-[100px] overflow-hidden">
-                                <p class="multiline-ellipsis text-white text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur esse, ad sequi doloribus impedit totam saepe beatae ipsum, unde, dolores voluptates ab fuga voluptate iste cum omnis eaque dolorem! Culpa.</p>
-                            </div>
-                            <button class="bg-[#00be00] border-4 border-[#2fff2f] text-[#ffffff] h-12 cursor-pointer MinecraftSevenV2 text-sm px-6">READ MORE</button>
-                        </div>
-                        <div class="news-item w-full h-auto bg-[#131313] p-5 overflow-hidden">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/MCV_ChaseTheSkies_Mesa01_VV_.net_1170x500.jpg" class="object-cover w-full h-[150px] mb-5" alt="">
-                            <h2 class="title text-white Minecrafter">The road to Vibrant Visuals on Java</h2>
-                            <div class="w-full h-[100px] overflow-hidden">
-                                <p class="multiline-ellipsis text-white text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur esse, ad sequi doloribus impedit totam saepe beatae ipsum, unde, dolores voluptates ab fuga voluptate iste cum omnis eaque dolorem! Culpa.</p>
-                            </div>
-                            <button class="bg-[#00be00] border-4 border-[#2fff2f] text-[#ffffff] h-12 cursor-pointer MinecraftSevenV2 text-sm px-6">READ MORE</button>
-                        </div>
+                <div class="pt-36 mb-52 w-full">
+                    <div class="w-full">
+                        <img src="<?= PUBLIC_URL ?>/images/uploads/<?= $news['gambar_news']; ?>" alt="" class="mb-10 w-full max-h-[350px] object-cover">
+                        <h1 class="text-4xl text-white mb-5 Minecrafter"><?= $news['judul_news'] ?></h1>
+                        <p class="text-md text-white"><?= $news['text_news'] ?></p>
                     </div>
                 </div>
-                
             </section>
         </main>
     </body>
