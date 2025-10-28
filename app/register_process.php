@@ -33,6 +33,7 @@
     mysqli_stmt_store_result($stmt);
     if(mysqli_stmt_num_rows($stmt) > 0){
         mysqli_stmt_close($stmt);
+        $_SESSION['flash_messages'] = "Email has been registered already.";
         header('Location: ../public/registerpage.php?error=' . urlencode('Email has been registered already.'));
         exit;
     }

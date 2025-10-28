@@ -42,7 +42,8 @@
                 <div class="pt-36 mb-52 w-full">
                     <div class="w-full">
                         <img src="<?= PUBLIC_URL ?>/images/uploads/<?= $news['gambar_news']; ?>" alt="" class="mb-10 w-full max-h-[350px] object-cover">
-                        <h1 class="text-4xl text-white mb-5 Minecrafter"><?= $news['judul_news'] ?></h1>
+                        <h1 class="text-4xl text-white Minecrafter"><?= $news['judul_news'] ?></h1>
+                        <p class="text-md text-white mb-5"><?= $news['tanggal_news'] ?></p>
                         <p class="text-md text-white"><?= $news['text_news'] ?></p>
                     </div>
                 </div>

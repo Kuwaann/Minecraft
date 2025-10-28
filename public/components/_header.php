@@ -11,7 +11,6 @@
             </a>
             <div class="navbar-items box-border">
                 <div class="text-white hover:text-[#7cff7c] mr-5"><a href="../public/newspage.php">News</a></div>
-                <div class="text-white hover:text-[#7cff7c]"><a href="../public/homepage.php#feedback">Feedback</a></div>
                 <?php if(e(!is_logged_in())): ?>
                 <div class="navbar-item ml-10"><a href="../public/loginpage.php" class="login-button border-4 border-[#7cff7c] px-6">LOGIN</a></div>
                 <?php else: ?>

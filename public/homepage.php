@@ -52,11 +52,11 @@
                     </div>
                     <h1 class="font-black text-white text-4xl mb-10 Minecrafter drop-shadow-lg">INGAME SCREENSHOTS</h1>
                     <div class="flex gap-4 h-auto">
-                        <div class="flex-[3]"><img src="https://sm.ign.com/ign_ap/gallery/m/minecraft-/minecraft-vibrant-visuals-comparison-screenshots_25we.jpg" class="w-full h-full object-cover"></div>
-                        <div class="flex flex-1 flex-col gap-4 box-border">
-                            <img src="https://sm.ign.com/ign_ap/gallery/m/minecraft-/minecraft-vibrant-visuals-comparison-screenshots_25we.jpg" class="w-full h-full object-cover border-4 border-[#2fff2f] cursor-pointer">
-                            <img src="https://pub-f354ec240bea480db7320bd0e29d972e.r2.dev/sites/2/2025/03/MCL_Broll_CustomBuild_AG_01-ba5477d30cc1ddde2e9d.jpg" class="w-full h-full object-cover border-4 border-gray-800 opacity-80 cursor-pointer">
-                            <img src="https://admin.esports.gg/wp-content/uploads/2025/03/Minecraft-overworld-968x544.jpg" class="w-full h-full object-cover border-4 border-gray-800 opacity-80 cursor-pointer">
+                        <div class="flex-[3]"><img id="main-image" src="https://sm.ign.com/ign_ap/gallery/m/minecraft-/minecraft-vibrant-visuals-comparison-screenshots_25we.jpg" class="w-full h-full object-cover transition-all"></div>
+                        <div class="thumbnails flex flex-1 flex-col gap-4 box-border transition-all">
+                            <img src="https://sm.ign.com/ign_ap/gallery/m/minecraft-/minecraft-vibrant-visuals-comparison-screenshots_25we.jpg" class="thumbnail w-full h-full object-cover border-4 border-[#2fff2f] cursor-pointer transition-all">
+                            <img src="https://pub-f354ec240bea480db7320bd0e29d972e.r2.dev/sites/2/2025/03/MCL_Broll_CustomBuild_AG_01-ba5477d30cc1ddde2e9d.jpg" class="thumbnail w-full h-full object-cover border-4 border-gray-800 opacity-80 cursor-pointer transition-all">
+                            <img src="https://admin.esports.gg/wp-content/uploads/2025/03/Minecraft-overworld-968x544.jpg" class="thumbnail w-full h-full object-cover border-4 border-gray-800 opacity-80 cursor-pointer transition-all">
                         </div>
                     </div>
                 </div>
@@ -64,8 +64,8 @@
             <section class="bg-[#1f1f1f] h-screen box-border">
                 <div class="px-52 py-20 w-full h-screen">
                     <div class="w-full flex justify-between items-center mb-10">
-                        <h1 class="font-black text-white text-4xl Minecrafter drop-shadow-lg">News</h1>
-                        <a href="../public/newspage.php" class="bg-transparent border-2 border-[#2fff2f] text-[#2fff2f] h-12 cursor-pointer MinecraftSevenV2 text-sm px-6 flex items-center">VIEW MORE</a>
+                        <h1 class="font-black text-white text-4xl Minecrafter drop-shadow-lg">Recent News</h1>
+                        <a href="../public/newspage.php" class="bg-transparent border-2 border-[#2fff2f] text-[#2fff2f] h-12 cursor-pointer MinecraftSevenV2 text-sm px-6 flex items-center hover:bg-[#2fff2f] hover:border-[0px] hover:text-black transition-all">VIEW MORE</a>
                     </div>
                     
                     <div class="news w-full box-border flex justify-start gap-5 items-center">
@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </section">
-            <a name="feedback">
+            <!-- <a name="feedback">
             <section name="" class="w-full h-screen relative border-t-8 border-[#0f0f0fc7]">
                 <div class="w-full h-full">
                     <img src="./images/support.jpg" class="w-full h-full object-cover opacity-8" alt="">
@@ -103,7 +103,23 @@
                     </div>
                 </div>
             </section>
-            </a>
+            </a> -->
         </main>
+        <script>
+            const mainImage = document.getElementById('main-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            thumbnails.forEach(thumb => thumb.addEventListener('click', () =>{
+                mainImage.src = thumb.src;
+                thumbnails.forEach(t => {
+                        t.classList.remove("border-[#2fff2f]", "opacity-100");
+                        t.classList.add("border-gray-800", "opacity-80");
+                    });
+
+                    // kasih efek aktif di thumbnail terpilih
+                    thumb.classList.remove("border-gray-800", "opacity-80");
+                    thumb.classList.add("border-[#2fff2f]", "opacity-100");
+            }));
+        </script>
     </body>
 </html>

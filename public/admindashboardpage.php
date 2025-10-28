@@ -40,10 +40,7 @@
                     <h1 class="text-white Minecrafter text-3xl mb-3 text-left">Dashboard Menu</h1>
                     <hr class="border-t-2 border-t-white mb-10 w-full">
                     <div class="w-full flex flex-col">
-                        <a href="" class="text-white Minecrafter text-lg mb-5 text-left bg-[#3f3f3f] p-3">Dashboard</a>
                         <a href="" class="text-white Minecrafter text-lg mb-5 text-left bg-[#3f3f3f] p-3">News</a>
-                        <a href="" class="text-white Minecrafter text-lg mb-5 text-left bg-[#3f3f3f] p-3">Feedbacks</a>
-                        <a href="" class="text-white Minecrafter text-lg mb-5 text-left bg-[#3f3f3f] p-3">Accounts</a>
                     </div>
                 </div>
                 <div class="content flex-grow w-10 box-border" id="news">
@@ -67,10 +64,10 @@
                             <tr>
                                 <td class="text-white text-center px-2 py-2"><?= $n['id_news'] ?></td>
                                 <td class="text-white px-2 py-2"><img src="<?= PUBLIC_URL ?>/images/uploads/<?= $n['gambar_news'] ?>" alt="" class=""></td>
-                                <td class="text-white px-2 py-2"><?= $n['judul_news'] ?></td>
+                                <td class="text-white px-2 py-2 truncate"><?= $n['judul_news'] ?></td>
                                 <td class="text-white px-2 py-2 truncate"><?= $n['text_news'] ?></td>
-                                <td class="text-[#2fff2f] px-2 py-2 text-center"><a href="">Edit</a></td>
-                                <td class="text-red-500 px-2 py-2 text-center"><a href="../app/admindeletenewspage_process.php?id_news=<?= $n['id_news']; ?>">Delete</a></td>
+                                <td class="text-[#2fff2f] px-2 py-2 text-center"><a href="./admineditnewspage.php?id_news=<? $n['id_news'] ?>">Edit</a></td>
+                                <td class="text-red-500 px-2 py-2 text-center"><a href="../app/admindeletenewspage_process.php?id_news=<?= $n['id_news']; ?>" onclick="return confirm('Are you sure?')">Delete</a></td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

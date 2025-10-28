@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,6 +30,9 @@
                         <h2 class="text-white MinecraftSevenV2 mb-3">Join the Adventure!</h2>
                         <hr class="w-full border-t-2 border-white opacity-70 mb-5">
                         <form class="w-full mb-5" action="../app/register_process.php" method="POST">
+                            <?php if(isset($_SESSION['flash_messages'])): ?>
+                            <p class="text-red-500"><?php echo $_SESSION['flash_messages']; unset($_SESSION['flash_messages']); ?></p>
+                            <?php endif; ?>
                             <div class="form-item w-full mb-5">
                                 <label for="name" class="text-white MinecraftSevenV2 mb-3">Full Name</label>
                                 <input type="name" name="name" id="name" class="px-3 h-10 w-full border-[2px] border-[#333333] bg-[#1f1f1f] text-white MinecraftSevenV2">
